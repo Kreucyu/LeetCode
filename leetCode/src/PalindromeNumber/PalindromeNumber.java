@@ -2,7 +2,7 @@ package PalindromeNumber;
 
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
-        if(x < 11) return false;
+        if(x < 0) return false;
         String number = String.valueOf(x);
         Character[] numbers = new Character[number.length()];
         for (int i = 0; i < number.length(); i++) {
