@@ -1,3 +1,5 @@
+package TwoSum;
+
 public class MainTwoSum {
     public static void main(String[] args) {
             TwoSum twoSum = new TwoSum();

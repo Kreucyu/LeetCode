@@ -1,3 +1,5 @@
+package PalindromeNumber;
+
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
         if(x < 11) return false;
