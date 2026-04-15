@@ -1,4 +1,4 @@
-public class Main {
+public class MainTwoSum {
     public static void main(String[] args) {
             TwoSum twoSum = new TwoSum();
             //int nums[] = {2, 7, 11, 15};
