@@ -26,16 +26,19 @@ public class RomanToInteger {
         for(int i  = 0; i < romanNumbers.size(); i++) {
 
            if(romanNumbers.get(i).equals('I')) {
-               if(romanNumbers.get(i + 1).equals('V')) {
-                    finalValue += 4;
-                    i++;
-                    continue;
+               if(i + 1 != romanNumbers.size()) {
+                   if(romanNumbers.get(i + 1).equals('V')) {
+                       finalValue += 4;
+                       i++;
+                       continue;
+                   }
+                   if(romanNumbers.get(i + 1).equals('X')) {
+                       finalValue += 9;
+                       i++;
+                       continue;
+                   }
                }
-               if(romanNumbers.get(i + 1).equals('X')) {
-                   finalValue += 9;
-                   i++;
-                   continue;
-               }
+
                finalValue += 1;
                continue;
            }
@@ -46,15 +49,17 @@ public class RomanToInteger {
            }
 
             if(romanNumbers.get(i).equals('X')) {
-                if(romanNumbers.get(i + 1).equals('L')) {
-                    finalValue += 40;
-                    i++;
-                    continue;
-                }
-                if(romanNumbers.get(i + 1).equals('C')) {
-                    finalValue += 90;
-                    i++;
-                    continue;
+                if(i + 1 != romanNumbers.size()) {
+                    if (romanNumbers.get(i + 1).equals('L')) {
+                        finalValue += 40;
+                        i++;
+                        continue;
+                    }
+                    if (romanNumbers.get(i + 1).equals('C')) {
+                        finalValue += 90;
+                        i++;
+                        continue;
+                    }
                 }
                 finalValue += 10;
                 continue;
@@ -66,15 +71,17 @@ public class RomanToInteger {
             }
 
             if(romanNumbers.get(i).equals('C')) {
-                if(romanNumbers.get(i + 1).equals('D')) {
-                    finalValue += 400;
-                    i++;
-                    continue;
-                }
-                if(romanNumbers.get(i + 1).equals('M')) {
-                    finalValue += 900;
-                    i++;
-                    continue;
+                if(i + 1 != romanNumbers.size()) {
+                    if (romanNumbers.get(i + 1).equals('D')) {
+                        finalValue += 400;
+                        i++;
+                        continue;
+                    }
+                    if (romanNumbers.get(i + 1).equals('M')) {
+                        finalValue += 900;
+                        i++;
+                        continue;
+                    }
                 }
                 finalValue += 100;
                 continue;
