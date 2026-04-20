@@ -6,95 +6,39 @@ import java.util.HashMap;
 public class RomanToInteger {
     public int romanToInt(String s) {
         int finalValue = 0;
+        if(s.isEmpty() || s.length() > 15) return finalValue;
 
-        if(s.length() < 1 || s.length() > 15) return finalValue;
+        ArrayList<String> romanNumbers = new ArrayList<>();
+        HashMap<String, Integer> numbersMap = new HashMap<>();
+        numbersMap.put("I", 1);
+        numbersMap.put("V", 5);
+        numbersMap.put("X", 10);
+        numbersMap.put("L", 50);
+        numbersMap.put("C", 100);
+        numbersMap.put("D", 500);
+        numbersMap.put("M", 1000);
 
-        ArrayList<Character> romanNumbers = new ArrayList<>();
-        HashMap<Character, Integer> numbersMap = new HashMap<>();
-        numbersMap.put('I', 1);
-        numbersMap.put('V', 5);
-        numbersMap.put('X', 10);
-        numbersMap.put('L', 50);
-        numbersMap.put('C', 100);
-        numbersMap.put('D', 500);
-        numbersMap.put('M', 1000);
+        HashMap<String, Integer> differentNumbers = new HashMap<>();
+        differentNumbers.put("IV", 4);
+        differentNumbers.put("IX", 9);
+        differentNumbers.put("XL", 40);
+        differentNumbers.put("XC", 90);
+        differentNumbers.put("CD", 400);
+        differentNumbers.put("CM", 900);
 
         for(int i  = 0; i < s.length(); i++) {
-            romanNumbers.add(s.charAt(i));
+            romanNumbers.add(String.valueOf(s.charAt(i)));
         }
 
         for(int i  = 0; i < romanNumbers.size(); i++) {
-
-           if(romanNumbers.get(i).equals('I')) {
-               if(i + 1 != romanNumbers.size()) {
-                   if(romanNumbers.get(i + 1).equals('V')) {
-                       finalValue += 4;
-                       i++;
-                       continue;
-                   }
-                   if(romanNumbers.get(i + 1).equals('X')) {
-                       finalValue += 9;
-                       i++;
-                       continue;
-                   }
-               }
-
-               finalValue += 1;
-               continue;
-           }
-
-           if(romanNumbers.get(i).equals('V')) {
-               finalValue += 5;
-               continue;
-           }
-
-            if(romanNumbers.get(i).equals('X')) {
-                if(i + 1 != romanNumbers.size()) {
-                    if (romanNumbers.get(i + 1).equals('L')) {
-                        finalValue += 40;
-                        i++;
-                        continue;
-                    }
-                    if (romanNumbers.get(i + 1).equals('C')) {
-                        finalValue += 90;
-                        i++;
-                        continue;
-                    }
+            if(i + 1 != romanNumbers.size()) {
+                if (differentNumbers.containsKey(String.valueOf(romanNumbers.get(i) + romanNumbers.get(i + 1)))) {
+                    finalValue += differentNumbers.get(String.valueOf(romanNumbers.get(i) + romanNumbers.get(i + 1)));
+                    i++;
+                    continue;
                 }
-                finalValue += 10;
-                continue;
             }
-
-            if(romanNumbers.get(i).equals('L')) {
-                finalValue += 50;
-                continue;
-            }
-
-            if(romanNumbers.get(i).equals('C')) {
-                if(i + 1 != romanNumbers.size()) {
-                    if (romanNumbers.get(i + 1).equals('D')) {
-                        finalValue += 400;
-                        i++;
-                        continue;
-                    }
-                    if (romanNumbers.get(i + 1).equals('M')) {
-                        finalValue += 900;
-                        i++;
-                        continue;
-                    }
-                }
-                finalValue += 100;
-                continue;
-            }
-
-            if(romanNumbers.get(i).equals('D')) {
-                finalValue += 500;
-                continue;
-            }
-
-            finalValue += 1000;
-
-
+           finalValue += numbersMap.get(romanNumbers.get(i));
         }
         return finalValue;
     }
