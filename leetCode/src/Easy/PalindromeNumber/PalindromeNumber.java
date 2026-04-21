@@ -1,4 +1,4 @@
-package PalindromeNumber;
+package Easy.PalindromeNumber;
 
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {

@@ -1,4 +1,4 @@
-package TwoSum;
+package Easy.TwoSum;
 
 public class MainTwoSum {
     public static void main(String[] args) {

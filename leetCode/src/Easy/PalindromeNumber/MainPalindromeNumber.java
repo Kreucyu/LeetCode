@@ -1,4 +1,4 @@
-package PalindromeNumber;
+package Easy.PalindromeNumber;
 
 public class MainPalindromeNumber {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package RomanToInteger;
+package Easy.RomanToInteger;
 
 public class MainRomanToInteger {
     public static void main(String[] args) {
